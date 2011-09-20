@@ -1,0 +1,42 @@
+Image Resizer Component
+=============================
+
+Installation
+---------------------
+
+*   git clone git@github.com:mdunham/Image-Resizer-Component-for-CakePHP2.git ImageResizerComponent
+*   Copy the file ImageResizerComponent.php to your app/Controller/Component/ folder
+*   In your controller add 'ImageResizer' to the list of components
+
+Usage Exmaples
+--------------------
+
+	$succeed = $this->ImageResizer->resizeImage($inputFilePath, array(
+		'output' => $outputFilePath,
+		'maxHeight' => 120,
+		'maxWidth' => 120
+	));
+
+or for a plain simple example:
+
+	$succeed = $this->ImageResizer->resizeImage($inputFilePath);
+
+In that example the $inputFilePath is used as the outputFilePath basically overriding itself. You can also setup the options before calling it.
+
+        $this->ImageResizer->maxHeight = 200;
+        $this->ImageResizer->maxWidth = 200;
+	$succeed = $this->ImageResizer->resizeImage($inputFilePath);
+
+Available Options
+---------------------
+
+*   maxWidth: The maximum width the image can have
+*   maxHeight: The maximum height the image can have
+*   allocatedMemory: If this is set it will temporarily increase the memory_limit of PHP
+*   output: The full path to where the new image should be saved if blank overwrites the source image
+*   cropRatio: This will automatically crop the photo based on a ration for example: 4:6
+
+Thanks
+---------------------
+
+Any problems let me know happy baking.
