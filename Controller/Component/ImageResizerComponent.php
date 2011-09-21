@@ -177,7 +177,11 @@ class ImageResizerComponent extends Component {
 			return false;
 		}
 
-		$this->_imageInfo = getimagesize($path);
+		if (false === ($this->_imageInfo = getimagesize($path))) {
+			throw new ResizerFormatException();
+			return false;
+		}
+		
 		$this->_imageFile = new File($path);
 
 		if (substr($this->_imageInfo['mime'], 0, 6) != 'image/') {
