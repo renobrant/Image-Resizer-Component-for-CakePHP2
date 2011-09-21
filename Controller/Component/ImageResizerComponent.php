@@ -17,11 +17,13 @@ App::uses('File', 'Utility');
  * Gets thrown whenever file_exists() fail on source image path
  */
 class ResizerNoSourceException extends CakeException {
+
 	protected $_messageTemplate = 'The source image %s could not be found.';
 
 	public function __construct($message, $code = 404) {
 		parent::__construct($message, $code);
 	}
+
 }
 
 /**
@@ -30,11 +32,13 @@ class ResizerNoSourceException extends CakeException {
  * Gets thrown whenever the source file does not have an image/* mime type
  */
 class ResizerFormatException extends CakeException {
+
 	protected $_messageTemplate = 'You can only resize/crop images.';
 
 	public function __construct($message = '', $code = 500) {
 		parent::__construct($message, $code);
 	}
+
 }
 
 /**
@@ -43,11 +47,13 @@ class ResizerFormatException extends CakeException {
  * Gets thrown whenever file_put_contents fails on the output file
  */
 class ResizerOutputException extends CakeException {
+
 	protected $_messageTemplate = 'Unable to save %s';
 
 	public function __construct($message = '', $code = 500) {
 		parent::__construct($message, $code);
 	}
+
 }
 
 /**
@@ -157,7 +163,7 @@ class ImageResizerComponent extends Component {
 		if ( ! isset($output)) {
 			$output = $path;
 		}
-		
+
 		if ( ! isset($deleteSource)) {
 			$deleteSource = $this->deleteSource;
 		}
@@ -197,23 +203,21 @@ class ImageResizerComponent extends Component {
 		$offsetY = 0;
 
 		if (isset($cropZoom) && $cropZoom === true) {
-			if (count($cropRatio) == 2) {
-				$ratioComputed = $width / $height;
-				$cropRatioComputed = $maxWidth / $maxHeight;
+			$ratioComputed = $width / $height;
+			$cropRatioComputed = $maxWidth / $maxHeight;
 
-				// If the image is too tall so we will crop the top and bottom
-				if ($ratioComputed < $cropRatioComputed) {
-					$origHeight = $height;
-					$height = $width / $cropRatioComputed;
-					$offsetY = ($origHeight - $height) / 2;
-				}
+			// If the image is too tall so we will crop the top and bottom
+			if ($ratioComputed < $cropRatioComputed) {
+				$origHeight = $height;
+				$height = $width / $cropRatioComputed;
+				$offsetY = ($origHeight - $height) / 2;
+			}
 
-				// If the image is too wide so we will crop off the left and right sides
-				else if ($ratioComputed > $cropRatioComputed) {
-					$origWidth = $width;
-					$width = $height * $cropRatioComputed;
-					$offsetX = ($origWidth - $width) / 2;
-				}
+			// If the image is too wide so we will crop off the left and right sides
+			else if ($ratioComputed > $cropRatioComputed) {
+				$origWidth = $width;
+				$width = $height * $cropRatioComputed;
+				$offsetX = ($origWidth - $width) / 2;
 			}
 		}
 
