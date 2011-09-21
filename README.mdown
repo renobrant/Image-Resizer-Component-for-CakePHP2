@@ -6,9 +6,9 @@ Requires CakePHP2+
 Installation
 ---------------------
 
-#   Open terminal and cd to your app folder: cd /path/to/app
-#   Then run git clone git@github.com:mdunham/Image-Resizer-Component-for-CakePHP2.git Plugin/ImageResizer
-#   In your controller add 'ImageResizer' to the list of components
+-  Open terminal and cd to your app folder: cd /path/to/app
+-   Then run git clone git@github.com:mdunham/Image-Resizer-Component-for-CakePHP2.git Plugin/ImageResizer
+-   In your controller add 'ImageResizer' to the list of components
 
 Handeling Errors
 ---------------------
