@@ -9,6 +9,7 @@ Installation
 -  Open terminal and cd to your app folder: cd /path/to/app
 -  Then run git clone git@github.com:mdunham/Image-Resizer-Component-for-CakePHP2.git Plugin/ImageResizer
 -  In your controller add 'ImageResizer.ImageResizer' to the list of components
+-  If you don't have CakePlugin::loadAll(); in your bootstrap.php then add CakePlugin::load('ImageResizer'); to it
 
 Handeling Errors
 ---------------------
