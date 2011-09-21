@@ -15,12 +15,9 @@ Handeling Errors
 
 This class defines three custom exceptions that all extend CakeException. You can use these to catch any errors and handle them in a nice manner.
 
-* ResizerNoSourceException
-** Gets thrown whenever file_exists() fail on source image path
-* ResizerFormatException
-** Gets thrown whenever the source file does not have an image/* mime type
-* ResizerOutputException
-** Gets thrown whenever file_put_contents fails on the output file
+* ResizerNoSourceException - Gets thrown whenever file_exists() fail on source image path
+* ResizerFormatException - Gets thrown whenever the source file does not have an image/* mime type
+* ResizerOutputException - Gets thrown whenever file_put_contents fails on the output file
 
 If you fail to catch these they will result in a default cake error message. Below are some examples of how to catch them.
 
