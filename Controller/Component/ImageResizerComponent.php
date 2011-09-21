@@ -312,6 +312,10 @@ class ImageResizerComponent extends Component {
 		// Clean up the memory
 		imagedestroy($src);
 		imagedestroy($dst);
+		
+		if ($deleteSource) {
+			unlink($path);
+		}
 
 		return (bool) file_put_contents($output, $data);
 	}
